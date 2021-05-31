@@ -12,10 +12,10 @@ C:\Users\Igor\Downloads\Kursach\Kursach\obj\Debug\Kursach.dll
 C:\Users\Igor\Downloads\Kursach\Kursach\obj\Debug\Kursach.pdb
 C:\Users\Igor\Downloads\Kursach\Kursach\obj\Debug\Kursach.Properties.Resources.resources
 C:\Users\Igor\Downloads\Kursach\Kursach\obj\Debug\Kursach.csproj.GenerateResource.cache
-C:\Users\Igor\Downloads\Kursach\Kursach\obj\Debug\Kursach.Form1.resources
 C:\Users\Igor\Downloads\Kursach\Kursach\bin\Debug\DocumentFormat.OpenXml.dll
 C:\Users\Igor\Downloads\Kursach\Kursach\bin\Debug\OpenXmlPowerTools.dll
 C:\Users\Igor\Downloads\Kursach\Kursach\bin\Debug\System.IO.Packaging.dll
 C:\Users\Igor\Downloads\Kursach\Kursach\bin\Debug\System.Management.Automation.dll
 C:\Users\Igor\Downloads\Kursach\Kursach\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\Igor\Downloads\Kursach\Kursach\obj\Debug\Kursach.csproj.CopyComplete
+C:\Users\Igor\Downloads\Kursach\Kursach\obj\Debug\Kursach.Calcul.resources

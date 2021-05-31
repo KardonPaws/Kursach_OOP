@@ -29,35 +29,19 @@ namespace Kursach
             var panel = a.CreateRibbonPanel(tabName, panelName);
             var NewButton = new PushButtonData("–асчет полезной площади", "–асчет полезной площади", Assembly.GetExecutingAssembly().Location, "Kursach.Command");
             var NewButon = panel.AddItem(NewButton) as PushButton;
-            NewButon.ToolTip = "–асчЄт полезной и общей площади и определение избыточных, не окруженых не размещеных помещений.";
+            NewButon.ToolTip = "–асчЄт полезной и общей площади и подсчет обычных, избыточных, не окруженых и не размещеных помещений.";
             
             Image img = Properties.Resources.Knopka2;
             ImageSource ImgSrc = Convert(img);
             NewButon.LargeImage = ImgSrc;
             NewButon.Image = ImgSrc;
 
+
+
             return Result.Succeeded;
         }
 
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet element)
-        {
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-            Document doc = uidoc.Document;
-            FilteredElementCollector a = new FilteredElementCollector(doc).OfClass(typeof(SpatialElement));
-            RoomStates roomState = new RoomStates();
-
-
-            foreach (SpatialElement e in a)
-            {
-                Room room = e as Room;
-                
-                roomState.DistinguishRoom(room);
-            }
-            string hueta = roomState.sum.ToString();
-            TaskDialog.Show("’уета: ", hueta);
-            return Result.Succeeded;
-        }
+      
 
         public BitmapImage Convert (Image img)
         {
