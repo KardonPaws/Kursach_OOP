@@ -68,8 +68,8 @@ namespace Kursach
                     checkedListBox1.SetItemChecked(i, false);
                     checkedListBox1.SetItemChecked(0, true);
             }
-        string stroka = "";
-        stroka += textBox1.Text;
+            string stroka = "";
+            stroka += textBox1.Text;
             string[] words = stroka.Split(new char[] { ' ' });
 
             Document doc = uidoc.Document;
@@ -82,7 +82,7 @@ namespace Kursach
             
 
             int normal = 0, ner = 0, izb = 0, neokr = 0;
-            double totalArea = 0f, NotArea = 0f, PArea = 0f;
+            double totalArea = 0, NotArea = 0, PArea = 0;
             if(checkedListBox1.CheckedItems.Count != 0)  
             for (int x = 0; x < checkedListBox1.CheckedItems.Count; x++)
                 foreach (Room r in rooms)
@@ -110,31 +110,23 @@ namespace Kursach
                                 else neokr++;
                             }
                             totalArea += r.Area;
+                            foreach (string word in words)
+                                if (r.Name == word)
+                                {
+                                    NotArea += r.Area;
+                                    richTextBox1.Text += " \r\n " + word;
+                                }
                         }
                 }
 
-            if (checkedListBox1.CheckedItems.Count != 0)
-                for (int x = 0; x < checkedListBox1.CheckedItems.Count; x++)
-                    foreach (string word in words)
-                    foreach (Room r in rooms)
-                    {
-                        if (((r.Level.Name == checkedListBox1.CheckedItems[x].ToString()) && (r.Name == word)) || ((checkedListBox1.CheckedItems.Contains("Все") == true) && (r.Name == word)))
-                        {
-                            NotArea += r.Area;
-                        }
-                    }
-
-
-
-
-            PArea = totalArea - NotArea;
+            
             double METERS_IN_FEET = 0.3048;
-
-            PArea *= Math.Pow(METERS_IN_FEET, 2);
-            PArea = Math.Round(totalArea, 2);
+            NotArea = NotArea * Math.Pow(METERS_IN_FEET, 2);
+            NotArea = Math.Round(totalArea, 2);
             totalArea *= Math.Pow(METERS_IN_FEET, 2);
             totalArea = Math.Round(totalArea, 2);
-            richTextBox1.Text += " \r\n Общая площадь =" + Convert.ToString(totalArea) + " м^2" + " Полезная =" + Convert.ToString(PArea) + "м^2";
+            PArea = totalArea - NotArea;
+            richTextBox1.Text += " \r\n Общая площадь =" + Convert.ToString(totalArea) + " м^2" + " Полезная =" + Convert.ToString(PArea) + "м^2 ";
             richTextBox1.Text += " \r\n Обычных помещений -" + Convert.ToString(normal) + " Не размещенных -" + Convert.ToString(ner);
             richTextBox1.Text += " \r\n Избыточных помещений -" + Convert.ToString(izb) + " Не окруженных -" + Convert.ToString(neokr);
            
